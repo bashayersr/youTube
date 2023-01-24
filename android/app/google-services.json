@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:992749746601:android:a9882c7b89a42e4da0ecb8",
+        "android_client_info": {
+          "package_name": "com.example.mynewyoutubeflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992749746601-qaosook62g8mpd25mg0nhvhlumqdmvgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNXSpXt7XMBVlrflv-uSSIHezfx27rsWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992749746601-qaosook62g8mpd25mg0nhvhlumqdmvgg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "992749746601-m2c9be5icvnebp6fpn4rkdkrrkcjc611.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtube"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:992749746601:android:57ddaa9aeffe2489a0ecb8",
         "android_client_info": {
           "package_name": "com.example.youtube"
@@ -29,6 +65,13 @@
             {
               "client_id": "992749746601-qaosook62g8mpd25mg0nhvhlumqdmvgg.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "992749746601-m2c9be5icvnebp6fpn4rkdkrrkcjc611.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.youtube"
+              }
             }
           ]
         }

@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,19 +49,9 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAjJXJFIrYebqmyEYXThCVjWZn6ySC7SRo',
-    appId: '1:992749746601:web:02945ec71cd6e59ea0ecb8',
-    messagingSenderId: '992749746601',
-    projectId: 'clone-ee9cb',
-    authDomain: 'clone-ee9cb.firebaseapp.com',
-    storageBucket: 'clone-ee9cb.appspot.com',
-    measurementId: 'G-6J1ZJ12FT2',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBNXSpXt7XMBVlrflv-uSSIHezfx27rsWQ',
-    appId: '1:992749746601:android:57ddaa9aeffe2489a0ecb8',
+    appId: '1:992749746601:android:a9882c7b89a42e4da0ecb8',
     messagingSenderId: '992749746601',
     projectId: 'clone-ee9cb',
     storageBucket: 'clone-ee9cb.appspot.com',
@@ -63,21 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDulfTkNYXxXpe7zEjt1T5VcJSCzajv5W0',
-    appId: '1:992749746601:ios:667bca3aa5f3441ea0ecb8',
+    appId: '1:992749746601:ios:16c03d92d3ca58d5a0ecb8',
     messagingSenderId: '992749746601',
     projectId: 'clone-ee9cb',
     storageBucket: 'clone-ee9cb.appspot.com',
-    iosClientId: '992749746601-m2c9be5icvnebp6fpn4rkdkrrkcjc611.apps.googleusercontent.com',
-    iosBundleId: 'com.example.youtube',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDulfTkNYXxXpe7zEjt1T5VcJSCzajv5W0',
-    appId: '1:992749746601:ios:667bca3aa5f3441ea0ecb8',
-    messagingSenderId: '992749746601',
-    projectId: 'clone-ee9cb',
-    storageBucket: 'clone-ee9cb.appspot.com',
-    iosClientId: '992749746601-m2c9be5icvnebp6fpn4rkdkrrkcjc611.apps.googleusercontent.com',
-    iosBundleId: 'com.example.youtube',
+    iosClientId: '992749746601-theh09j3eg7j5803aq5ctrqdmammh3k9.apps.googleusercontent.com',
+    iosBundleId: 'com.example.mynewyoutubeflutter',
   );
 }
