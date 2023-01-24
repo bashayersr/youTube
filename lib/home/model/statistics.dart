@@ -1,21 +1,21 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-// like and dislike information 
+// like and dislike information
 //information about one video
 class Statistics {
-  String viewCount;
-  String likeCount;
-  String dislikeCount;
-  String favoriteCount;
-  String commentCount;
-  String subscriberCount;
+  var viewCount;
+  var likeCount;
+  var dislikeCount;
+  var favoriteCount;
+  var commentCount;
+  var subscriberCount;
   Statistics({
-    required this.viewCount,
-    required this.likeCount,
-    required this.dislikeCount,
-    required this.favoriteCount,
-    required this.commentCount,
-    required this.subscriberCount,
+    this.viewCount,
+    this.likeCount,
+    this.dislikeCount,
+    this.favoriteCount,
+    this.commentCount,
+    this.subscriberCount,
   });
   factory Statistics.fromJson(Map<String, dynamic> json) => Statistics(
         viewCount: json["viewCount"],
@@ -26,16 +26,10 @@ class Statistics {
         subscriberCount: json["subscriberCount"],
       );
   Map<String, dynamic> toJson() => {
-        "viewCount": viewCount,
-        "likeCount": likeCount,
-        "dislikeCount": dislikeCount,
-        "favoriteCount": favoriteCount,
-        "commentCount": commentCount,
+        "viewCount": this.viewCount,
+        "likeCount": this.likeCount,
+        "dislikeCount": this.dislikeCount,
+        "favoriteCount": this.favoriteCount,
+        "commentCount": this.commentCount,
       };
 }
-
-
-
-
-
-

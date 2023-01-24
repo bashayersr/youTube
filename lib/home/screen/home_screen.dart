@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/sugessition.dart';
 import 'main_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,11 +10,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        child: Center(
-          child: Text(
-            'home',
-            style: TextStyle(color: Colors.black),
-          ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 6),
+          child: Suggestions(),
         ),
       ),
     );

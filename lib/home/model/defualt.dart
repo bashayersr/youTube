@@ -2,20 +2,20 @@
 import 'dart:convert';
 
 class Default {
-  String url;
-  int width;
-  int height;
+  var url;
+  var width;
+  var height;
   Default({
-    required this.url,
-    required this.width,
-    required this.height,
+    this.url,
+    this.width,
+    this.height,
   });
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'url': url,
-      'width': width,
-      'height': height,
+    return {
+      'url': this.url,
+      'width': this.width,
+      'height': this.height,
     };
   }
 
@@ -29,14 +29,13 @@ class Default {
 }
 
 class Thumbnails {
-  Default thumbnailsDefault;
-  Default medium;
-  Default high;
+  var thumbnailsDefault;
+  var medium;
+  var high;
   Thumbnails({
-    
-    required this.thumbnailsDefault,
-    required this.medium,
-    required this.high,
+    this.thumbnailsDefault,
+    this.medium,
+    this.high,
   });
 
   factory Thumbnails.fromJson(Map<String, dynamic> json) {
@@ -60,20 +59,20 @@ class Snippet {
   Thumbnails thumbnails;
   DateTime publishedAt;
   DateTime publishTime;
-  String channelId;
-  String title;
-  String description;
-  String channelTitle;
-  String liveBroadcastContent;
+  var channelId;
+  var title;
+  var description;
+  var channelTitle;
+  var liveBroadcastContent;
   Snippet({
     required this.thumbnails,
     required this.publishedAt,
     required this.publishTime,
-    required this.channelId,
-    required this.title,
-    required this.description,
-    required this.channelTitle,
-    required this.liveBroadcastContent,
+    this.channelId,
+    this.title,
+    this.description,
+    this.channelTitle,
+    this.liveBroadcastContent,
   });
 
   factory Snippet.fromJson(Map<String, dynamic> json) => Snippet(
@@ -90,28 +89,28 @@ class Snippet {
       );
 
   Map<String, dynamic> toJson() => {
-        "publishedAt": publishedAt.toIso8601String(),
-        "channelId": channelId,
-        "title": title,
-        "description": description,
-        "thumbnails": thumbnails.toJson(),
-        "channelTitle": channelTitle,
-        "liveBroadcastContent": liveBroadcastContent,
-        "publishTime": publishTime.toIso8601String(),
+        "publishedAt": this.publishedAt.toIso8601String(),
+        "channelId": this.channelId,
+        "title": this.title,
+        "description": this.description,
+        "thumbnails": this.thumbnails.toJson(),
+        "channelTitle": this.channelTitle,
+        "liveBroadcastContent": this.liveBroadcastContent,
+        "publishTime": this.publishTime.toIso8601String(),
       };
 }
 
 class Id {
-  String kind;
-  String videoId;
+  var kind;
+  var videoId;
   Id({
-    required this.kind,
-    required this.videoId,
+    this.kind,
+    this.videoId,
   });
 
   Map<String, dynamic> toJson() => {
-        "kind": kind,
-        "videoId": videoId,
+        "kind": this.kind,
+        "videoId": this.videoId,
       };
 
   factory Id.fromJson(Map<String, dynamic> json) => Id(
@@ -121,13 +120,13 @@ class Id {
 }
 
 class Video {
-  String kind;
-  String etag;
+  var kind;
+  var etag;
   Id id;
   Snippet snippet;
   Video({
-    required this.kind,
-    required this.etag,
+    this.kind,
+    this.etag,
     required this.id,
     required this.snippet,
   });
@@ -150,15 +149,15 @@ class Video {
 }
 
 class YoutubeVideoResult {
-  int totalResults;
-  int resultsPerPage;
-  String nextPagetoken;
-  List<Video> items;  // هذا يستقبل لسته الفيديوات 
+  var totalResults;
+  var resultsPerPage;
+  var nextPagetoken;
+  List<Video> items; // هذا يستقبل لسته الفيديوات
 
   YoutubeVideoResult(
-      {required this.totalResults,
-      required this.resultsPerPage,
-      required this.nextPagetoken,
+      {this.totalResults,
+      this.resultsPerPage,
+      this.nextPagetoken,
       required this.items});
 
   factory YoutubeVideoResult.fromJson(Map<String, dynamic> json) =>
@@ -167,5 +166,10 @@ class YoutubeVideoResult {
           resultsPerPage: json["resultsPerPage"],
           nextPagetoken: json["nextPageToken"],
           items: List<Video>.from(
-              json["items"].map((data) => Video.fromJson(data))));
+              json["items"].map((data) => Video.fromJson(data)))
+
+          // items:List.of(json["items"])
+          // .map((i) =>i )
+          //  .toList(),
+          );
 }

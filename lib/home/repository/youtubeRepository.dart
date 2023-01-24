@@ -5,7 +5,7 @@ import 'package:youtube/home/model/youtuberchanil.dart';
 import '../model/defualt.dart';
 
 class YoutubeRepository extends GetConnect {
-  static YoutubeRepository get to =>Get.find();
+  static YoutubeRepository get to => Get.find();
   @override
   void onInit() {
     httpClient.baseUrl = "https://www.googleapis.com/";
@@ -124,7 +124,7 @@ class YoutubeRepository extends GetConnect {
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         Map<String, dynamic> data = response.body["items"][0];
-        return Youtuber .fromJson(data);
+        return Youtuber.fromJson(data);
       } else {
         print(response.body);
       }
