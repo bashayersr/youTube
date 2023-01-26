@@ -29,29 +29,29 @@ class HomeController extends GetxController {
   }
 
   void _videoLoad() async {
-    YoutubeVideoResult youtubeVideoResult = await YoutubeRepository.to
+    YoutubeVideoResult? youtubeVideoResult = await YoutubeRepository.to
         .loadVideos(youtubeResult.value.nextPagetoken ?? "");
 
     if (youtubeVideoResult != null &&
         youtubeVideoResult.items != null &&
-        youtubeVideoResult.items.length > 0) {
+        youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
-        youtube.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube.items.addAll(youtubeVideoResult.items);
+        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
+        youtube!.items?.addAll(youtubeVideoResult.items!);
       });
     }
   }
 
   void _videoLoadgetx() async {
-    YoutubeVideoResult youtubeVideoResult = await YoutubeRepository.to
+    YoutubeVideoResult? youtubeVideoResult = await YoutubeRepository.to
         .loadGetxVed(youtubeResult.value.nextPagetoken ?? "");
 
     if (youtubeVideoResult != null &&
         youtubeVideoResult.items != null &&
-        youtubeVideoResult.items.length > 0) {
+        youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
-        youtube.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube.items.addAll(youtubeVideoResult.items);
+        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
+        youtube!.items?.addAll(youtubeVideoResult.items!);
       });
     }
   }

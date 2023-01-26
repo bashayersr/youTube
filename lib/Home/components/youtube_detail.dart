@@ -6,7 +6,7 @@ import 'package:youtube_clone_app/Home/controller/youtube_detail_controller.dart
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeDetail extends GetView<YoutubeDetailController> {
-  const YoutubeDetail({Key key}) : super(key: key);
+  const YoutubeDetail({Key? key}) : super(key: key);
 
   Widget _titleZone() {
     return Container(
@@ -16,7 +16,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              controller.video.value.snippet.title,
+              controller.video.value.snippet!.title!,
               style: TextStyle(fontSize: 15),
             ),
             Row(
@@ -31,7 +31,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
                 Text(" · "),
                 Text(
                   DateFormat("yyyy-MM-dd")
-                      .format(controller.video.value.snippet.publishTime),
+                      .format(controller.video.value.snippet!.publishTime!),
                   style: TextStyle(
                     fontSize: 13,
                     color: Colors.black.withOpacity(0.5),
@@ -50,7 +50,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Obx(
         () => Text(
-          controller.video.value.snippet.description,
+          controller.video.value.snippet!.description!,
           style: TextStyle(
             fontSize: 14,
           ),
@@ -98,7 +98,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
               radius: 30,
               backgroundColor: Colors.grey.withOpacity(0.5),
               backgroundImage: Image.network(
-                      controller.youtuber.value.snippet.thumbnails.medium.url)
+                      controller.youtuber.value.snippet!.thumbnails!.medium!.url!)
                   .image,
             ),
             SizedBox(width: 15),
@@ -107,11 +107,11 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    controller.youtuber.value.snippet.title,
+                    controller.youtuber.value.snippet!.title!,
                     style: TextStyle(fontSize: 18),
                   ),
                   Text(
-                    "اخ واخت ${controller.youtuber.value.statistics.subscriberCount}",
+                    "اخ واخت ${controller.youtuber.value.statistics!.subscriberCount!}",
                     style: TextStyle(
                         fontSize: 14, color: Colors.black.withOpacity(0.6)),
                   ),
@@ -156,14 +156,14 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
       body: Column(
         children: [
           YoutubePlayer(
-            controller: controller.playController,
+            controller: controller.playController!,
             showVideoProgressIndicator: true,
             progressIndicatorColor: Colors.blueAccent,
             topActions: <Widget>[
               const SizedBox(width: 8.0),
               Expanded(
                 child: Text(
-                  controller.playController.metadata.title,
+                  controller.playController!.metadata.title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,

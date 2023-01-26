@@ -5,7 +5,7 @@ import 'package:youtube_clone_app/Home/components/video_widget.dart';
 import 'package:youtube_clone_app/Home/controller/home_controller.dart';
 
 class Home extends StatelessWidget {
-  Home({Key key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   final HomeController controller = Get.put(HomeController());
 
@@ -29,15 +29,15 @@ class Home extends StatelessWidget {
                     onTap: () {
                       //page route
                       Get.toNamed(
-                          "/detail/${controller.youtubeResult.value.items[index].id.videoId}");
+                          "/detail/${controller.youtubeResult.value.items![index].id?.videoId}");
                     },
                     child: VideoWidget(
-                        video: controller.youtubeResult.value.items[index]),
+                        video: controller.youtubeResult.value.items![index]),
                   );
                 },
                 childCount: controller.youtubeResult.value.items == null
                     ? 0
-                    : controller.youtubeResult.value.items.length,
+                    : controller.youtubeResult.value.items?.length,
               ),
             ),
           ],

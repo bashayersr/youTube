@@ -7,8 +7,8 @@ class Youtuber {
     this.statistics,
   });
 
-  Snippet snippet;
-  Statistics statistics;
+  Snippet? snippet;
+  Statistics? statistics;
 
   factory Youtuber.fromJson(Map<String, dynamic> json) => Youtuber(
         snippet: Snippet.fromJson(json["snippet"]),

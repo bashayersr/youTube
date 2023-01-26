@@ -1,10 +1,10 @@
 import 'package:youtube_clone_app/Home/models/video.dart';
 
 class YoutubeVideoResult {
-  int totalResults;
-  int resultsPerPage;
-  String nextPagetoken;
-  List<Video> items;
+  int? totalResults;
+  int? resultsPerPage;
+  String? nextPagetoken;
+  List<Video>? items;
 
   YoutubeVideoResult(
       {this.totalResults, this.resultsPerPage, this.nextPagetoken, this.items});

@@ -5,7 +5,7 @@ import 'package:youtube_clone_app/Home/components/video_widget.dart';
 import 'package:youtube_clone_app/Home/controller/dartVd.dart';
 
 class Subsecribtion extends StatelessWidget {
-  Subsecribtion({Key key}) : super(key: key);
+  Subsecribtion({Key? key}) : super(key: key);
 
   // final DartVidController controller = Get.put(DartVidController());
 

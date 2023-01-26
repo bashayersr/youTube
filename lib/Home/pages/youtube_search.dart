@@ -5,7 +5,7 @@ import 'package:youtube_clone_app/Home/components/video_widget.dart';
 import 'package:youtube_clone_app/Home/controller/youtube_search_controller.dart';
 
 class YoutubeSearch extends GetView<YoutubeSearchController> {
-  const YoutubeSearch({Key key}) : super(key: key);
+  const YoutubeSearch({Key? key}) : super(key: key);
 
   Widget _searchHistory() {
     return ListView(
@@ -36,15 +36,15 @@ class YoutubeSearch extends GetView<YoutubeSearchController> {
       controller: controller.scrollController,
       child: Column(
         children: List.generate(
-            controller.youtubeVideoResult.value.items.length, (index) {
+            controller.youtubeVideoResult.value.items!.length, (index) {
           return GestureDetector(
             onTap: () {
               //page route
               Get.toNamed(
-                  "/detail/${controller.youtubeVideoResult.value.items[index].id.videoId}");
+                  "/detail/${controller.youtubeVideoResult.value.items![index].id?.videoId}");
             },
             child: VideoWidget(
-                video: controller.youtubeVideoResult.value.items[index]),
+                video: controller.youtubeVideoResult.value.items![index]),
           );
         }),
       ),
@@ -77,7 +77,7 @@ class YoutubeSearch extends GetView<YoutubeSearchController> {
         ),
       ),
       body: Obx(
-        () => controller.youtubeVideoResult.value.items.length > 0
+        () => controller.youtubeVideoResult.value.items!.length > 0
             ? _searchResultView()
             : _searchHistory(),
       ),

@@ -9,7 +9,7 @@ class YoutubeDetailController extends GetxController {
   Rx<Video> video = Video().obs;
   Rx<Statistics> statistics = Statistics().obs;
   Rx<Youtuber> youtuber = Youtuber().obs;
-  YoutubePlayerController playController;
+  YoutubePlayerController? playController;
 
   @override
   void onInit() {
@@ -23,7 +23,7 @@ class YoutubeDetailController extends GetxController {
 
   void _event() {
     playController = YoutubePlayerController(
-      initialVideoId: video.value.id.videoId,
+      initialVideoId: video.value.id!.videoId!,
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,

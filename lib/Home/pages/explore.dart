@@ -5,7 +5,7 @@ import 'package:youtube_clone_app/Home/components/video_widget.dart';
 import 'package:youtube_clone_app/Home/controller/getx_controller.dart';
 
 class Explore extends StatelessWidget {
-  Explore({Key key}) : super(key: key);
+  Explore({Key? key}) : super(key: key);
   final GetxVedController controller = Get.put(GetxVedController());
 
   @override

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class YoutubeBottomSheet extends StatelessWidget {
-  const YoutubeBottomSheet({Key key}) : super(key: key);
+  const YoutubeBottomSheet({Key? key}) : super(key: key);
 
   Widget _header() {
     return Row(
@@ -22,7 +22,7 @@ class YoutubeBottomSheet extends StatelessWidget {
   }
 
   Widget _itemButton(
-      {String icon, double iconSize, String label, Function onTap}) {
+      {String? icon, double? iconSize, String? label, Function()? onTap}) {
     return InkWell(
       onTap: onTap,
       child: Row(
@@ -43,7 +43,7 @@ class YoutubeBottomSheet extends StatelessWidget {
             ),
           ),
           SizedBox(width: 15),
-          Text(label)
+          Text(label!)
         ],
       ),
     );
