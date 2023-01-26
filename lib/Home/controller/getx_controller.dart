@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:youtube_clone_app/Home/models/youtube_video_result.dart';
 import 'package:youtube_clone_app/Home/repository/youtube_repository.dart';
 
+// this controller is responsible for fetch Getx video 
 class GetxVedController extends GetxController {
   static GetxVedController get to => Get.find();
 
@@ -28,17 +29,17 @@ class GetxVedController extends GetxController {
   }
 
   void _videoLoadgetx() async {
-    YoutubeVideoResult youtubeVideoResult = await YoutubeRepository.to
+    YoutubeVideoResult? youtubeVideoResult = await YoutubeRepository.to
         .loadGetxVed(youtubeResult.value.nextPagetoken ?? "");
 
   
 
     if (youtubeVideoResult != null &&
         youtubeVideoResult.items != null &&
-        youtubeVideoResult.items.length > 0) {
+        youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
-        youtube.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube.items.addAll(youtubeVideoResult.items);
+        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
+        youtube!.items?.addAll(youtubeVideoResult.items!);
       });
     }
   }

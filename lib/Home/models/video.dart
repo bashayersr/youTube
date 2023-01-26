@@ -6,10 +6,10 @@ class Video {
     this.snippet,
   });
 
-  String kind;
-  String etag;
-  Id id;
-  Snippet snippet;
+  String? kind;
+  String? etag;
+  Id? id;
+  Snippet? snippet;
 
   factory Video.fromJson(Map<String, dynamic> json) => Video(
         kind: json["kind"],
@@ -21,8 +21,8 @@ class Video {
   Map<String, dynamic> toJson() => {
         "kind": kind,
         "etag": etag,
-        "id": id.toJson(),
-        "snippet": snippet.toJson(),
+        "id": id!.toJson(),
+        "snippet": snippet!.toJson(),
       };
 }
 
@@ -32,8 +32,8 @@ class Id {
     this.videoId,
   });
 
-  String kind;
-  String videoId;
+  String? kind;
+  String? videoId;
 
   factory Id.fromJson(Map<String, dynamic> json) => Id(
         kind: json["kind"],
@@ -58,16 +58,16 @@ class Snippet {
     this.publishTime,
   });
 
-  DateTime publishedAt;
-  DateTime publishTime;
+  DateTime? publishedAt;
+  DateTime? publishTime;
 
-  String channelId;
-  String title;
-  String description;
-  String channelTitle;
-  String liveBroadcastContent;
+  String? channelId;
+  String? title;
+  String? description;
+  String? channelTitle;
+  String? liveBroadcastContent;
 
-  Thumbnails thumbnails;
+  Thumbnails? thumbnails;
 
   factory Snippet.fromJson(Map<String, dynamic> json) => Snippet(
         publishedAt: DateTime.parse(json["publishedAt"]),
@@ -83,14 +83,14 @@ class Snippet {
       );
 
   Map<String, dynamic> toJson() => {
-        "publishedAt": publishedAt.toIso8601String(),
+        "publishedAt": publishedAt!.toIso8601String(),
         "channelId": channelId,
         "title": title,
         "description": description,
-        "thumbnails": thumbnails.toJson(),
+        "thumbnails": thumbnails!.toJson(),
         "channelTitle": channelTitle,
         "liveBroadcastContent": liveBroadcastContent,
-        "publishTime": publishTime.toIso8601String(),
+        "publishTime": publishTime!.toIso8601String(),
       };
 }
 
@@ -101,9 +101,9 @@ class Thumbnails {
     this.high,
   });
 
-  Default thumbnailsDefault;
-  Default medium;
-  Default high;
+  Default? thumbnailsDefault;
+  Default? medium;
+  Default? high;
 
   factory Thumbnails.fromJson(Map<String, dynamic> json) => Thumbnails(
         thumbnailsDefault: Default.fromJson(json["default"]),
@@ -112,9 +112,9 @@ class Thumbnails {
       );
 
   Map<String, dynamic> toJson() => {
-        "default": thumbnailsDefault.toJson(),
-        "medium": medium.toJson(),
-        "high": high.toJson(),
+        "default": thumbnailsDefault!.toJson(),
+        "medium": medium!.toJson(),
+        "high": high!.toJson(),
       };
 }
 
@@ -125,9 +125,9 @@ class Default {
     this.height,
   });
 
-  String url;
-  int width;
-  int height;
+  String? url;
+  int? width;
+  int? height;
 
   factory Default.fromJson(Map<String, dynamic> json) => Default(
         url: json["url"],

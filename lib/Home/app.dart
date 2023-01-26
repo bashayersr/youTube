@@ -10,7 +10,7 @@ import 'package:youtube_clone_app/Home/pages/subsecribtion.dart';
 //this app dart contain the bootom navagation bar
 
 class App extends GetView<AppController> {
-  const App({Key key}) : super(key: key);
+  // const App({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +19,13 @@ class App extends GetView<AppController> {
         switch (RouteName.values[controller.currentIndex.value]) {
           case RouteName.Home:
             return Home();
-            break;
           case RouteName.GetXVd:
-            return Explore();  //route to explore page
-            break;
+            return Explore(); //route to explore page
           case RouteName.DartVid:
-            return Subsecribtion();  // rout to subsecribtion page
-            break;
+            return Subsecribtion(); // rout to subsecribtion page
           case RouteName.CleanCode:
-            return Library();       // rout to subsecribtion Library
-            break;
+            return Library(); // rout to subsecribtion Library
+
           case RouteName.Add:
             break;
         }

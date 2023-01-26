@@ -6,18 +6,18 @@ import 'package:intl/intl.dart';
 
 class VideoWidget extends StatefulWidget {
   final Video video;
-  const VideoWidget({Key key, this.video}) : super(key: key);
+  const VideoWidget({Key? key, required this.video}) : super(key: key);
 
   @override
   _VideoWidgetState createState() => _VideoWidgetState();
 }
 
 class _VideoWidgetState extends State<VideoWidget> {
-  VideoController _videoController;
+  late VideoController _videoController;
   @override
   void initState() {
     _videoController = Get.put(VideoController(video: widget.video),
-        tag: widget.video.id.videoId);
+        tag: widget.video.id?.videoId);
     super.initState();
   }
 
@@ -29,7 +29,7 @@ class _VideoWidgetState extends State<VideoWidget> {
           height: 230,
           color: Colors.grey.withOpacity(0.5),
           child: Image.network(
-            widget.video.snippet.thumbnails.medium.url,
+            widget.video.snippet!.thumbnails!.medium!.url!,
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -47,7 +47,7 @@ class _VideoWidgetState extends State<VideoWidget> {
               radius: 30,
               backgroundColor: Colors.grey.withOpacity(0.5),
               backgroundImage:
-                  Image.network(_videoController.youtuberThumbnailUrl).image,
+                  Image.network(_videoController.youtuberThumbnailUrl!).image,
             ),
           ),
           SizedBox(width: 15),
@@ -58,7 +58,7 @@ class _VideoWidgetState extends State<VideoWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                      child: Text(widget.video.snippet.title, maxLines: 2),
+                      child: Text(widget.video.snippet!.title!, maxLines: 2),
                     ),
                     IconButton(
                       alignment: Alignment.topCenter,
@@ -70,7 +70,7 @@ class _VideoWidgetState extends State<VideoWidget> {
                 Row(
                   children: [
                     Text(
-                      widget.video.snippet.channelTitle,
+                      widget.video.snippet!.channelTitle!,
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.black.withOpacity(0.8),
@@ -89,7 +89,7 @@ class _VideoWidgetState extends State<VideoWidget> {
                     Text(" · "),
                     Text(
                       DateFormat("yyyy-MM-dd")
-                          .format(widget.video.snippet.publishTime),
+                          .format(widget.video.snippet!.publishTime!),
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.black.withOpacity(0.6),

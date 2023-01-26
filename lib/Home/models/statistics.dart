@@ -8,12 +8,12 @@ class Statistics {
     this.subscriberCount,
   });
 
-  String viewCount;
-  String likeCount;
-  String dislikeCount;
-  String favoriteCount;
-  String commentCount;
-  String subscriberCount;
+  String? viewCount;
+  String? likeCount;
+  String? dislikeCount;
+  String? favoriteCount;
+  String? commentCount;
+  String? subscriberCount;
 
   factory Statistics.fromJson(Map<String, dynamic> json) => Statistics(
         viewCount: json["viewCount"],

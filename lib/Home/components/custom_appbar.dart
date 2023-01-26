@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key key}) : super(key: key);
+  // const CustomAppBar({Key key}) : super(key: key);
 
   Widget _logo() {
     return Container(

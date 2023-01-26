@@ -5,7 +5,7 @@ import 'package:youtube_clone_app/Home/components/video_widget.dart';
 import 'package:youtube_clone_app/Home/controller/clean_cde.dart';
 
 class Library extends StatelessWidget {
-  Library({Key key}) : super(key: key);
+  Library({Key? key}) : super(key: key);
 
   final CleanCodeController controller = Get.put(CleanCodeController());
 
