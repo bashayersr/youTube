@@ -250,7 +250,7 @@ class AuthController extends GetxController
       });
 
       update();
-      Get.offNamed(Routes.profileScreen);
+      Get.offNamed(Routes.mainScreen);
       // getEmailDoc();
     } on FirebaseAuthException catch (e) {
       String title = e.code.replaceAll(RegExp('-'), ' ').capitalize!;
