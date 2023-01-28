@@ -1,15 +1,18 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:youtube/routes.dart';
 
 class CustomAppBar extends StatelessWidget {
-  // const CustomAppBar({Key key}) : super(key: key);
+  const CustomAppBar({super.key}) ;
 
   Widget _logo() {
     return Container(
       child: Image.asset(
-        "assets/images/youtube.png",height: 50,
-        width: 70,
+        "assets/images/youtube.png",height: 1,
+        width: 1,
       ),
     );
   }
@@ -38,12 +41,19 @@ class CustomAppBar extends StatelessWidget {
             ),
           ),
         ),
-        CircleAvatar(
-          backgroundColor: Colors.grey.withOpacity(0.5),
-          backgroundImage: Image.network(
-                  "https://yt3.ggpht.com/AOBrTKwXRGbGx7EhSodEwT364r-TyuayV2LmwulX9XCt1JP0rOu95Mqf_orVpy1uSaUeun2E=s900-c-k-c0x00ffffff-no-rj")
-              .image,
-        )
+        IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.currentUser != null ||
+                  GetStorage().read<bool>("auth") == true
+                  ? Get.toNamed(Routes.profileScreen)
+                  :
+                  Get.toNamed(Routes.loginScreen);
+
+
+            },
+            icon: CircleAvatar(
+              backgroundColor: Colors.grey,
+            )),
       ],
     );
   }
@@ -51,11 +61,14 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+        // width: MediaQuery.of(context).size.width,
+        color: Colors.white,
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+// mainAxisSize: MainAxisSize.min,
+
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _logo(),
+        // _logo(),
         _actions(),
       ],
     ));

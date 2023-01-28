@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get/get_connect/connect.dart';
-import 'package:youtube_clone_app/Home/models/statistics.dart';
-import 'package:youtube_clone_app/Home/models/youtube_video_result.dart';
-import 'package:youtube_clone_app/Home/models/youtuber.dart';
+import 'package:youtube/Home/models/statistics.dart';
+import 'package:youtube/Home/models/youtube_video_result.dart';
+import 'package:youtube/Home/models/youtuber.dart';
 
 class YoutubeRepository extends GetConnect {
   static YoutubeRepository get to => Get.find();
@@ -17,12 +17,13 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/search?part=snippet&maxResults=10000&order=date&type=video&videoDefinition=high&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         return YoutubeVideoResult.fromJson(response.body);
       }
     }
+    return null;
   }
 
   Future<YoutubeVideoResult?> loadGetxVed(String nextPageToken) async {
@@ -30,7 +31,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/search?part=snippet&maxResults=10000&q=getx&order=date&type=video&videoDefinition=high&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         return YoutubeVideoResult.fromJson(response.body);
@@ -43,7 +44,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/search?part=snippet&channelId=UCytEtngcIINSMbdc22SrbrQ&maxResults=10000&q=cleancode&order=date&type=video&videoDefinition=high&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&pageToken=$nextPageToken";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         return YoutubeVideoResult.fromJson(response.body);
@@ -56,7 +57,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/search?part=snippet&channelId=UCytEtngcIINSMbdc22SrbrQ&maxResults=10000&q=dart&order=date&type=video&videoDefinition=high&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         return YoutubeVideoResult.fromJson(response.body);
@@ -70,7 +71,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/search?part=snippet&maxResults=10000&order=date&type=video&videoDefinition=high&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&pageToken=$nextPageToken&q=$searchKeyword";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         return YoutubeVideoResult.fromJson(response.body);
@@ -83,7 +84,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/videos?part=statistics&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&id=$videoId";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         Map<String, dynamic> data = response.body["items"][0];
@@ -97,7 +98,7 @@ class YoutubeRepository extends GetConnect {
         "/youtube/v3/channels?part=statistics,snippet&key=AIzaSyBm4aCbKG3aJZiDe1yh1jpzO7GGiqPddpY&id=$channelId";
     final response = await get(url);
     if (response.status.hasError) {
-      return Future.error(response.statusText!);
+      return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
         Map<String, dynamic> data = response.body["items"][0];

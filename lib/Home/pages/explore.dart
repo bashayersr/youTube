@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/components/custom_appbar.dart';
-import 'package:youtube_clone_app/Home/components/video_widget.dart';
-import 'package:youtube_clone_app/Home/controller/getx_controller.dart';
+import 'package:youtube/Home/components/custom_appbar.dart';
+import 'package:youtube/Home/components/video_widget.dart';
+import 'package:youtube/Home/controller/getx_controller.dart';
 
 class Explore extends StatelessWidget {
-  Explore({Key? key}) : super(key: key);
+  Explore ({super.key});
   final GetxVedController controller = Get.put(GetxVedController());
 
   @override

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/controller/video_controller.dart';
-import 'package:youtube_clone_app/Home/models/video.dart';
+import 'package:youtube/Home/controller/video_controller.dart';
+import 'package:youtube/Home/models/video.dart';
 import 'package:intl/intl.dart';
 
 class VideoWidget extends StatefulWidget {
   final Video video;
-  const VideoWidget({Key? key, required this.video}) : super(key: key);
+  const VideoWidget({super.key, required this.video}) ;
 
   @override
   _VideoWidgetState createState() => _VideoWidgetState();
@@ -29,7 +29,7 @@ class _VideoWidgetState extends State<VideoWidget> {
           height: 230,
           color: Colors.grey.withOpacity(0.5),
           child: Image.network(
-            widget.video.snippet!.thumbnails!.medium!.url!,
+            widget.video.snippet?.thumbnails?.medium?.url??"",
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -47,7 +47,7 @@ class _VideoWidgetState extends State<VideoWidget> {
               radius: 30,
               backgroundColor: Colors.grey.withOpacity(0.5),
               backgroundImage:
-                  Image.network(_videoController.youtuberThumbnailUrl!).image,
+                  Image.network(_videoController.youtuberThumbnailUrl).image,
             ),
           ),
           SizedBox(width: 15),

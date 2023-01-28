@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:youtube_clone_app/Home/controller/youtube_detail_controller.dart';
+import 'package:youtube/Home/controller/youtube_detail_controller.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeDetail extends GetView<YoutubeDetailController> {
-  const YoutubeDetail({Key? key}) : super(key: key);
+  const YoutubeDetail({super.key});
 
   Widget _titleZone() {
     return Container(
@@ -111,7 +111,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
                     style: TextStyle(fontSize: 18),
                   ),
                   Text(
-                    "اخ واخت ${controller.youtuber.value.statistics!.subscriberCount!}",
+                    "اخ واخت ${controller.youtuber.value.statistics!.subscriberCount}",
                     style: TextStyle(
                         fontSize: 14, color: Colors.black.withOpacity(0.6)),
                   ),
@@ -156,14 +156,14 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
       body: Column(
         children: [
           YoutubePlayer(
-            controller: controller.playController!,
+            controller: controller.playController,
             showVideoProgressIndicator: true,
             progressIndicatorColor: Colors.blueAccent,
             topActions: <Widget>[
               const SizedBox(width: 8.0),
               Expanded(
                 child: Text(
-                  controller.playController!.metadata.title,
+                  controller.playController.metadata.title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
