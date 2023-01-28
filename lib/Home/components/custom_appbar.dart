@@ -61,14 +61,12 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // width: MediaQuery.of(context).size.width,
         color: Colors.white,
         child: Row(
-// mainAxisSize: MainAxisSize.min,
 
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // _logo(),
+        _logo(),
         _actions(),
       ],
     ));
