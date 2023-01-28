@@ -11,8 +11,8 @@ class CustomAppBar extends StatelessWidget {
   Widget _logo() {
     return Container(
       child: Image.asset(
-        "assets/images/youtube.png",height: 1,
-        width: 1,
+        "assets/images/youtube.png",height: 50,
+        width: 70,
       ),
     );
   }
@@ -47,7 +47,7 @@ class CustomAppBar extends StatelessWidget {
                   GetStorage().read<bool>("auth") == true
                   ? Get.toNamed(Routes.profileScreen)
                   :
-                  Get.toNamed(Routes.loginScreen);
+              Get.toNamed(Routes.loginScreen);
 
 
             },
@@ -63,12 +63,11 @@ class CustomAppBar extends StatelessWidget {
     return Container(
         color: Colors.white,
         child: Row(
-
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _logo(),
-        _actions(),
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _logo(),
+            _actions(),
+          ],
+        ));
   }
 }
