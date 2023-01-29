@@ -30,6 +30,7 @@ class Home extends StatelessWidget {
                       //page route
                       Get.toNamed(
                           "/detail/${controller.youtubeResult.value.items![index].id?.videoId}");
+                          
                     },
                     child: VideoWidget(
                         video: controller.youtubeResult.value.items![index]),
