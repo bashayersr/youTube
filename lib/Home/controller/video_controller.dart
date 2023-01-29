@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/models/statistics.dart';
-import 'package:youtube_clone_app/Home/models/video.dart';
-import 'package:youtube_clone_app/Home/models/youtuber.dart';
-import 'package:youtube_clone_app/Home/repository/youtube_repository.dart';
+import 'package:youtube/Home/models/statistics.dart';
+import 'package:youtube/Home/models/video.dart';
+import 'package:youtube/Home/models/youtuber.dart';
+import 'package:youtube/Home/repository/youtube_repository.dart';
 
 class VideoController extends GetxController {
   Video video;
@@ -21,9 +21,9 @@ class VideoController extends GetxController {
   }
 
   String get viewCountString => "Views ${statistics.value.viewCount ?? '-'}";
-  String? get youtuberThumbnailUrl {
+  String get youtuberThumbnailUrl {
     if (youtuber.value.snippet == null)
       return "https://yt3.ggpht.com/AOBrTKwXRGbGx7EhSodEwT364r-TyuayV2LmwulX9XCt1JP0rOu95Mqf_orVpy1uSaUeun2E=s900-c-k-c0x00ffffff-no-rj";
-    return youtuber.value.snippet!.thumbnails!.medium?.url;
+    return youtuber.value.snippet!.thumbnails!.medium!.url!;
   }
 }

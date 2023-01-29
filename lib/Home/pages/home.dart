@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/components/custom_appbar.dart';
-import 'package:youtube_clone_app/Home/components/video_widget.dart';
-import 'package:youtube_clone_app/Home/controller/home_controller.dart';
+import 'package:youtube/Home/components/custom_appbar.dart';
+import 'package:youtube/Home/components/video_widget.dart';
+import 'package:youtube/Home/controller/home_controller.dart';
 
 class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+  Home({super.key});
 
   final HomeController controller = Get.put(HomeController());
 

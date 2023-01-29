@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/controller/app_controller.dart';
-import 'package:youtube_clone_app/Home/pages/explore.dart';
-import 'package:youtube_clone_app/Home/pages/home.dart';
-import 'package:youtube_clone_app/Home/pages/library.dart';
-import 'package:youtube_clone_app/Home/pages/subsecribtion.dart';
+import 'package:youtube/Home/controller/app_controller.dart';
+import 'package:youtube/Home/pages/explore.dart';
+import 'package:youtube/Home/pages/home.dart';
+import 'package:youtube/Home/pages/library.dart';
+import 'package:youtube/Home/pages/subsecribtion.dart';
+import 'package:youtube/home/screen/library_screen.dart';
 
 //this app dart contain the bootom navagation bar
 
 class App extends GetView<AppController> {
-  // const App({Key key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,16 @@ class App extends GetView<AppController> {
         switch (RouteName.values[controller.currentIndex.value]) {
           case RouteName.Home:
             return Home();
+            break;
           case RouteName.GetXVd:
-            return Explore(); //route to explore page
+            return Explore();  //route to explore page
+            break;
           case RouteName.DartVid:
-            return Subsecribtion(); // rout to subsecribtion page
+            return Subsecribtion();  // rout to subsecribtion page
+            break;
           case RouteName.CleanCode:
-            return Library(); // rout to subsecribtion Library
-
+            return Library();       // rout to subsecribtion Library
+            break;
           case RouteName.Add:
             break;
         }

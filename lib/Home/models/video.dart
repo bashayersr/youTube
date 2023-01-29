@@ -21,8 +21,8 @@ class Video {
   Map<String, dynamic> toJson() => {
         "kind": kind,
         "etag": etag,
-        "id": id!.toJson(),
-        "snippet": snippet!.toJson(),
+        "id": id?.toJson(),
+        "snippet": snippet?.toJson(),
       };
 }
 
@@ -83,14 +83,14 @@ class Snippet {
       );
 
   Map<String, dynamic> toJson() => {
-        "publishedAt": publishedAt!.toIso8601String(),
+        "publishedAt": publishedAt?.toIso8601String(),
         "channelId": channelId,
         "title": title,
         "description": description,
-        "thumbnails": thumbnails!.toJson(),
+        "thumbnails": thumbnails?.toJson(),
         "channelTitle": channelTitle,
         "liveBroadcastContent": liveBroadcastContent,
-        "publishTime": publishTime!.toIso8601String(),
+        "publishTime": publishTime?.toIso8601String(),
       };
 }
 
@@ -112,9 +112,9 @@ class Thumbnails {
       );
 
   Map<String, dynamic> toJson() => {
-        "default": thumbnailsDefault!.toJson(),
-        "medium": medium!.toJson(),
-        "high": high!.toJson(),
+        "default": thumbnailsDefault?.toJson(),
+        "medium": medium?.toJson(),
+        "high": high?.toJson(),
       };
 }
 

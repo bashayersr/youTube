@@ -1,4 +1,4 @@
-import 'package:youtube_clone_app/Home/models/video.dart';
+import 'package:youtube/Home/models/video.dart';
 
 class YoutubeVideoResult {
   int? totalResults;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_clone_app/Home/models/youtube_video_result.dart';
-import 'package:youtube_clone_app/Home/repository/youtube_repository.dart';
+import 'package:youtube/Home/models/youtube_video_result.dart';
+import 'package:youtube/Home/repository/youtube_repository.dart';
 
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
@@ -37,7 +37,7 @@ class HomeController extends GetxController {
         youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
         youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube!.items?.addAll(youtubeVideoResult.items!);
+        youtube?.items!.addAll(youtubeVideoResult.items!);
       });
     }
   }
@@ -51,7 +51,7 @@ class HomeController extends GetxController {
         youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
         youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube!.items?.addAll(youtubeVideoResult.items!);
+        youtube?.items!.addAll(youtubeVideoResult.items!);
       });
     }
   }
