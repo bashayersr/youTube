@@ -1,4 +1,5 @@
-class Video {   
+
+class Video {
   Video({
     this.kind,
     this.etag,
@@ -26,6 +27,19 @@ class Video {
       };
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Id {
   Id({
     this.kind,
@@ -46,7 +60,7 @@ class Id {
       };
 }
 
-class Snippet { //
+class Snippet {
   Snippet({
     this.publishedAt,
     this.channelId,

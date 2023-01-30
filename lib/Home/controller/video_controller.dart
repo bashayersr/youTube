@@ -24,6 +24,6 @@ class VideoController extends GetxController {
   String get youtuberThumbnailUrl {
     if (youtuber.value.snippet == null)
       return "https://yt3.ggpht.com/AOBrTKwXRGbGx7EhSodEwT364r-TyuayV2LmwulX9XCt1JP0rOu95Mqf_orVpy1uSaUeun2E=s900-c-k-c0x00ffffff-no-rj";
-    return youtuber.value.snippet!.thumbnails!.medium!.url!; //
+    return youtuber.value.snippet!.thumbnails!.medium!.url!;
   }
 }

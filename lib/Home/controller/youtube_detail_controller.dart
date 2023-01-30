@@ -1,12 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:youtube/Home/controller/video_controller.dart';
 import 'package:youtube/Home/models/statistics.dart';
 import 'package:youtube/Home/models/video.dart';
 import 'package:youtube/Home/models/youtuber.dart';
-import 'package:youtube/model/userModel.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeDetailController extends GetxController {
@@ -23,18 +19,6 @@ class YoutubeDetailController extends GetxController {
     youtuber(videoController.youtuber.value);
     _event();
     super.onInit();
-
-    //method for save video id
-
-    FirebaseFirestore.instance
-        .collection("users")
-        .doc(FirebaseAuth.instance.currentUser?.email)
-        .collection("videohistory")
-        .doc()
-        .set(
-      {'videoId': playController.initialVideoId.toString()},
-    );
-    
   }
 
   void _event() {

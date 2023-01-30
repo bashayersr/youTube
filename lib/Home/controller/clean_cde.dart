@@ -1,12 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:youtube/Home/models/video.dart';
 import 'package:youtube/Home/models/youtube_video_result.dart';
 import 'package:youtube/Home/repository/youtube_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:youtube/logic/controllers/auth_controller.dart';
 
 class CleanCodeController extends GetxController {
   static CleanCodeController get to => Get.find();
 
+  final authController = Get.find<AuthController>();
 
   ScrollController scrollController = ScrollController();
 
@@ -41,16 +45,25 @@ class CleanCodeController extends GetxController {
   }
 
   void _videoCleanCode() async {
-    YoutubeVideoResult? youtubeVideoResult = await YoutubeRepository.to
-        .loadCleanCode(youtubeResult.value.nextPagetoken ?? "");
+    DocumentSnapshot userDoc = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(authController.displayUserEmail.value)
+        .get();
+    Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
+    List<dynamic> x = docData["history"];
+    print("finallll");
+    print(x);
+    for (var i = 0; i < x.length; i++) {
+    Video? youtubeVideoResult = await YoutubeRepository.to
+        .getVideoByID(x[i]);
 
-    if (youtubeVideoResult != null &&
-        youtubeVideoResult.items != null &&
-        youtubeVideoResult.items!.length > 0) {
+    if (youtubeVideoResult != null
+                ) {
       youtubeResult.update((youtube) {
-        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
-        youtube?.items!.addAll(youtubeVideoResult.items!);
+        // youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
+        youtube?.items!.add(youtubeVideoResult);
       });
     }
+  }
   }
 }

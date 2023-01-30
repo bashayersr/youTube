@@ -40,11 +40,13 @@ class Library extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       //page route
+                      print(controller.youtubeResult.value.items![index].id);
                       Get.toNamed(
                           "/detail/${controller.youtubeResult.value.items![index].id?.videoId}");
                     },
                     child: VideoWidget(
-                        video: controller.youtubeResult.value.items![index]),
+                        video: controller.youtubeResult.value.items![index]
+                    ),
                   );
                 },
                 childCount: controller.youtubeResult.value.items == null

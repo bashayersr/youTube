@@ -27,6 +27,7 @@ class AuthController extends GetxController
   var displayUserPhoto = ''.obs;
   var displayUserEmail = ''.obs;
   var displayDescription = ''.obs;
+  List<dynamic> displayHistory=[] ;
 
   GoogleSignIn googleSign = GoogleSignIn(scopes: ['email']);
 
@@ -107,6 +108,7 @@ class AuthController extends GetxController
         displayUserEmail.value = docData['email'];
         displayDescription.value = docData['description'];
         displayUserPhoto.value = docData['image'];
+        displayHistory=docData['history'];
       });
 
       // showDialog(
@@ -247,6 +249,8 @@ class AuthController extends GetxController
         "displayName": name,
         "image": "",
         "description": "",
+        "history":[]
+
       });
 
       update();

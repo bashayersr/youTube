@@ -97,8 +97,8 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
             CircleAvatar(
               radius: 30,
               backgroundColor: Colors.grey.withOpacity(0.5),
-              backgroundImage: Image.network(controller
-                      .youtuber.value.snippet!.thumbnails!.medium!.url!)
+              backgroundImage: Image.network(
+                      controller.youtuber.value.snippet!.thumbnails!.medium!.url!)
                   .image,
             ),
             SizedBox(width: 15),
@@ -151,7 +151,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.black38,
       ),
       body: Column(
         children: [
