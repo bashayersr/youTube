@@ -46,7 +46,7 @@ class Id {
       };
 }
 
-class Snippet {
+class Snippet { //
   Snippet({
     this.publishedAt,
     this.channelId,
