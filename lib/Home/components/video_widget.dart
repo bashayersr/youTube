@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 
 class VideoWidget extends StatefulWidget {
   final Video video;
-  const VideoWidget({super.key, required this.video}) ;
+  const VideoWidget({super.key, required this.video});
 
   @override
   _VideoWidgetState createState() => _VideoWidgetState();
@@ -29,7 +29,7 @@ class _VideoWidgetState extends State<VideoWidget> {
           height: 230,
           color: Colors.grey.withOpacity(0.5),
           child: Image.network(
-            widget.video.snippet?.thumbnails?.medium?.url??"",
+            widget.video.snippet?.thumbnails?.medium?.url ?? "",
             fit: BoxFit.fitWidth,
           ),
         ),

@@ -1,4 +1,4 @@
-class Video {
+class Video {   
   Video({
     this.kind,
     this.etag,

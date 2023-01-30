@@ -34,6 +34,7 @@ class YoutubeDetailController extends GetxController {
         .set(
       {'videoId': playController.initialVideoId.toString()},
     );
+    
   }
 
   void _event() {
