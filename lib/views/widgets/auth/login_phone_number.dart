@@ -1,17 +1,14 @@
-import 'package:youtube/logic/controllers/auth_controller.dart';
-import 'package:youtube/routes.dart';
+import 'package:youtube/logic/controllers/auth/auth_controller.dart';
+import 'package:youtube/routes/routes.dart';
 import 'package:youtube/utils/my_string.dart';
 import 'package:youtube/utils/text_utils.dart';
 import 'package:youtube/utils/theme.dart';
-import 'package:youtube/views/screens/otp_screen.dart';
+import 'package:youtube/views/screens/auth/otp_screen.dart';
 import 'package:youtube/views/widgets/auth/auth_button.dart';
 import 'package:youtube/views/widgets/auth/check_widget%20copy.dart';
-import 'package:youtube/views/widgets/auth/check_widget.dart';
 import 'package:youtube/views/widgets/auth/container_under.dart';
 import 'package:youtube/views/widgets/auth/text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 

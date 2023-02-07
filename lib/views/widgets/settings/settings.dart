@@ -1,10 +1,9 @@
-import 'package:youtube/views/screens/setting/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../logic/controllers/auth_controller.dart';
-import '../../../routes.dart';
+import '../../../logic/controllers/auth/auth_controller.dart';
+import '../../../routes/routes.dart';
 
 
 
