@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sizer/sizer.dart';
+import 'package:youtube/ConnectMongo.dart';
 import 'package:youtube/firebase_options.dart';
 import 'package:youtube/logic/bindings/auth_binding.dart';
-import 'package:youtube/logic/controllers/youtube/app_controller.dart';
-import 'package:youtube/routes/routes.dart';
+import 'package:youtube/logic/controllers/youtube/AppController.dart';
+import 'package:youtube/routes/Routes.dart';
 
 void main() async {
   await GetStorage.init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  WidgetsFlutterBinding.ensureInitialized();
+  await MongoDatabase.connect();
+
   runApp(MyApp());
 }
 

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:youtube/logic/controllers/youtube/HistoryController.dart';
-import 'package:youtube/routes/routes.dart';
-import 'package:youtube/views/components/custom_appbar.dart';
-import 'package:youtube/views/components/video_widget.dart';
+import 'package:youtube/routes/Routes.dart';
+import 'package:youtube/views/components/CustomAppbar.dart';
+import 'package:youtube/views/components/VideoWidget.dart';
 
 class  Library extends StatelessWidget {
    Library({super.key});

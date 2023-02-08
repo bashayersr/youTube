@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:youtube/model/statistics.dart';
-import 'package:youtube/model/video.dart';
-import 'package:youtube/model/youtube_video_result.dart';
-import 'package:youtube/model/youtuber.dart';
+import 'package:youtube/model/Statistics.dart';
+import 'package:youtube/model/Video.dart';
+import 'package:youtube/model/YoutubeVideoResult.dart';
+import 'package:youtube/model/Youtuber.dart';
 
 class YoutubeRepository extends GetConnect {
   static YoutubeRepository get to => Get.find();
@@ -12,7 +12,7 @@ class YoutubeRepository extends GetConnect {
     httpClient.baseUrl = "https://www.googleapis.com";
   }
 
-  Future<YoutubeVideoResult?> loadVideos(String nextPageToken) async {
+  Future<YoutubeVideoResult?> LatestVideos(String nextPageToken) async {
     String url =
         "/youtube/v3/search?part=snippet&maxResults=10&order=date&type=video&videoDefinition=high&key=AIzaSyDugHgpoBVUEWgLOBNx9GU5Tv19Mgue9ts&pageToken=$nextPageToken";
     final response = await get(url);
@@ -26,45 +26,6 @@ class YoutubeRepository extends GetConnect {
     return null;
   }
 
-  Future<YoutubeVideoResult?> loadGetxVed(String nextPageToken) async {
-    String url =
-        "/youtube/v3/search?part=snippet&maxResults=10000&q=latestNews&order=date&type=video&videoDefinition=high&key=AIzaSyDugHgpoBVUEWgLOBNx9GU5Tv19Mgue9ts&pageToken=$nextPageToken";
-    final response = await get(url);
-    if (response.status.hasError) {
-      return Future.error(Exception(response.statusText));
-    } else {
-      if (response.body["items"] != null && response.body["items"].length > 0) {
-        return YoutubeVideoResult.fromJson(response.body);
-      }
-    }
-    return null;
-  }
-
-  // Future<YoutubeVideoResult?> loadCleanCode(String nextPageToken) async {
-  //   String url =
-  //       "/youtube/v3/search?part=snippet&channelId=UCytEtngcIINSMbdc22SrbrQ&maxResults=10000&q=cleancode&order=date&type=video&videoDefinition=high&key=AIzaSyDKrFkdCUVCTPN5ADjzjkFxrX5FFmtuEdE&pageToken=$nextPageToken";
-  //   final response = await get(url);
-  //   if (response.status.hasError) {
-  //     return Future.error(Exception(response.statusText));
-  //   } else {
-  //     if (response.body["items"] != null && response.body["items"].length > 0) {
-  //       return YoutubeVideoResult.fromJson(response.body);
-  //     }
-  //   }
-  // }
-
-  // Future<YoutubeVideoResult?> loadDart(String nextPageToken) async {
-  //   String url =
-  //       "/youtube/v3/search?part=snippet&channelId=UCytEtngcIINSMbdc22SrbrQ&maxResults=10000&q=dart&order=date&type=video&videoDefinition=high&key=AIzaSyDKrFkdCUVCTPN5ADjzjkFxrX5FFmtuEdE";
-  //   final response = await get(url);
-  //   if (response.status.hasError) {
-  //     return Future.error(Exception(response.statusText));
-  //   } else {
-  //     if (response.body["items"] != null && response.body["items"].length > 0) {
-  //       return YoutubeVideoResult.fromJson(response.body);
-  //     }
-  //   }
-  // }
 
   Future<YoutubeVideoResult?> search(
       String searchKeyword, String nextPageToken) async {

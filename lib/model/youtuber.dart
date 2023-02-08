@@ -1,5 +1,5 @@
-import 'package:youtube/model/statistics.dart';
-import 'package:youtube/model/video.dart';
+import 'package:youtube/model/Statistics.dart';
+import 'package:youtube/model/Video.dart';
 
 class Youtuber {
   Youtuber({

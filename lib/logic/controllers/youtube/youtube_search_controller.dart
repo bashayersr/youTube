@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:youtube/logic/repository/youtube_repository.dart';
-import 'package:youtube/model/youtube_video_result.dart';
+import 'package:youtube/logic/repository/YoutubeRepository.dart';
+import 'package:youtube/model/YoutubeVideoResult.dart';
 
 class YoutubeSearchController extends GetxController {
   String key = "searchKey";

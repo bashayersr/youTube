@@ -50,6 +50,7 @@ dependencies:
   youtube_player_flutter:
   cached_network_image:
   shared_preferences: ^2.0.11
+  mongo_dart: ^0.8.2
 
 
 dev_dependencies:

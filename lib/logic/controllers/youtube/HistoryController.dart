@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:youtube/logic/repository/youtube_repository.dart';
-import 'package:youtube/model/video.dart';
-import 'package:youtube/model/youtube_video_result.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
+import 'package:youtube/ConnectMongo.dart';
+import 'package:youtube/logic/repository/YoutubeRepository.dart';
+import 'package:youtube/model/Video.dart';
+import 'package:youtube/model/YoutubeVideoResult.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
 
 class HistoryController extends GetxController {
   static HistoryController get to => Get.find();
@@ -21,14 +22,17 @@ class HistoryController extends GetxController {
 
 
   void _history() async {
-    DocumentSnapshot userDoc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(authController.displayUserEmail.value)
-        .get();
-    Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
+    var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
+
+    //
+    // DocumentSnapshot userDoc = await FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(authController.displayUserEmail.value)
+    //     .get();
+    // Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
     List<dynamic> historyList = [];
     historyList.clear();
-    historyList = docData["history"];
+    historyList = user["history"];
     for(final e in historyList){
       Video? youtubeVideoResult = await YoutubeRepository.to.getVideoByID(e);
       youtubeVideoResult != null? {

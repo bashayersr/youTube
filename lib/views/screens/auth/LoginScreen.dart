@@ -1,10 +1,10 @@
 import 'package:sizer/sizer.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/routes/routes.dart';
-import 'package:youtube/utils/text_utils.dart';
-import 'package:youtube/utils/theme.dart';
-import 'package:youtube/views/widgets/auth/icon_widget.dart';
-import 'package:youtube/views/widgets/auth/login_email_form.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/routes/Routes.dart';
+import 'package:youtube/utils/TextUtils.dart';
+import 'package:youtube/utils/Theme.dart';
+import 'package:youtube/views/widgets/auth/IconWidget.dart';
+import 'package:youtube/views/widgets/auth/LoginEmailForm.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

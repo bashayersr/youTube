@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../utils/theme.dart';
+import '../../../utils/Theme.dart';
 
 class AuthTextFromField extends StatelessWidget {
   final TextEditingController controller;

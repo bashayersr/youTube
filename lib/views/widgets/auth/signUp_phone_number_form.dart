@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/routes/routes.dart';
-import 'package:youtube/utils/my_string.dart';
-import 'package:youtube/utils/text_utils.dart';
-import 'package:youtube/utils/theme.dart';
-import 'package:youtube/views/screens/auth/otp_screen.dart';
-import 'package:youtube/views/widgets/auth/auth_button.dart';
-import 'package:youtube/views/widgets/auth/text_form_field.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/routes/Routes.dart';
+import 'package:youtube/utils/MyString.dart';
+import 'package:youtube/utils/TextUtils.dart';
+import 'package:youtube/utils/Theme.dart';
+import 'package:youtube/views/screens/auth/OTPScreen.dart';
+import 'package:youtube/views/widgets/auth/AuthButton.dart';
+import 'package:youtube/views/widgets/auth/TextFormField.dart';
 
 class SignUp_Phone_Number_Form extends StatelessWidget {
   SignUp_Phone_Number_Form({super.key});

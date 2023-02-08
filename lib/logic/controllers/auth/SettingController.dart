@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
 
 class SettingController extends GetxController {
 

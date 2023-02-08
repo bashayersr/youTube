@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import 'package:youtube/app.dart';
-import 'package:youtube/logic/controllers/youtube/youtube_detail_controller.dart';
+import 'package:youtube/App.dart';
+import 'package:youtube/logic/controllers/youtube/YoutubeDetailController.dart';
 import 'package:youtube/logic/controllers/youtube/youtube_search_controller.dart';
-import 'package:youtube/views/components/youtube_detail.dart';
-import 'package:youtube/views/screens/auth/login_screen.dart';
-import 'package:youtube/views/screens/auth/setting/edit_profile_screen.dart';
-import 'package:youtube/views/screens/auth/setting/profile.dart';
-import 'package:youtube/views/screens/auth/setting/settings_screen.dart';
-import 'package:youtube/views/screens/youtube/youtube_search.dart';
-import 'package:youtube/views/screens/auth/forgot_password_screen.dart';
-import 'package:youtube/views/screens/auth/signup_screen.dart';
+import 'package:youtube/views/components/YoutubeDetail.dart';
+import 'package:youtube/views/screens/auth/LoginScreen.dart';
+import 'package:youtube/views/screens/auth/setting/EditProfileScreen.dart';
+import 'package:youtube/views/screens/auth/setting/Profile.dart';
+import 'package:youtube/views/screens/auth/setting/SettingsScreen.dart';
+import 'package:youtube/views/screens/youtube/YoutubeSearch.dart';
+import 'package:youtube/views/screens/auth/ForgotPasswordScreen.dart';
+import 'package:youtube/views/screens/auth/SignupScreen.dart';
 
 import '../logic/bindings/auth_binding.dart';
 

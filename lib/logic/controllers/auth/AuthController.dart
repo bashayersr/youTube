@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:youtube/model/userModel.dart';
-import 'package:youtube/routes/routes.dart';
+import 'package:youtube/ConnectMongo.dart';
+import 'package:youtube/model/UserModel.dart';
+import 'package:youtube/routes/Routes.dart';
 
 class AuthController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -250,6 +251,10 @@ class AuthController extends GetxController
         "image": "",
         "description": "",
         "history": []
+      });
+      MongoDatabase.userCollection.insert({
+        "email":email,
+        "history":[],
       });
 
       update();

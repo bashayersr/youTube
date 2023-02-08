@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:youtube/routes/routes.dart';
+import 'package:youtube/routes/Routes.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key}) ;

@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:youtube/logic/controllers/youtube/app_controller.dart';
-import 'package:youtube/logic/repository/youtube_repository.dart';
+import 'package:youtube/logic/controllers/youtube/AppController.dart';
+import 'package:youtube/logic/repository/YoutubeRepository.dart';
 
 class InitBinding implements Bindings {
   @override

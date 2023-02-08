@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../logic/controllers/auth/auth_controller.dart';
-import '../../../routes/routes.dart';
-import '../../../utils/my_string.dart';
-import '../../../utils/text_utils.dart';
-import '../../../utils/theme.dart';
-import 'auth_button.dart';
-import 'text_form_field.dart';
+import '../../../logic/controllers/auth/AuthController.dart';
+import '../../../routes/Routes.dart';
+import '../../../utils/MyString.dart';
+import '../../../utils/TextUtils.dart';
+import '../../../utils/Theme.dart';
+import 'AuthButton.dart';
+import 'TextFormField.dart';
 
 class SignUp_Email_Form extends StatelessWidget {
   SignUp_Email_Form({super.key});

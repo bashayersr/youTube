@@ -1,12 +1,12 @@
-import 'package:youtube/utils/text_utils.dart';
+import 'package:youtube/utils/TextUtils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../logic/controllers/auth/auth_controller.dart';
-import '../../../utils/my_string.dart';
-import '../../widgets/auth/auth_button.dart';
-import '../../widgets/auth/text_form_field.dart';
+import '../../../logic/controllers/auth/AuthController.dart';
+import '../../../utils/MyString.dart';
+import '../../widgets/auth/AuthButton.dart';
+import '../../widgets/auth/TextFormField.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   ForgotPasswordScreen({super.key});

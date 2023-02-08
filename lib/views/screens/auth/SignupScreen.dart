@@ -1,11 +1,11 @@
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/utils/text_utils.dart';
-import 'package:youtube/utils/theme.dart';
-import 'package:youtube/views/widgets/auth/icon_widget.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/utils/TextUtils.dart';
+import 'package:youtube/utils/Theme.dart';
+import 'package:youtube/views/widgets/auth/IconWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import '../../widgets/auth/signUp_email_form.dart';
+import '../../widgets/auth/SignUpEmailForm.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});

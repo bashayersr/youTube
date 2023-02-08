@@ -3,10 +3,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/logic/controllers/youtube/home_controller.dart';
-import 'package:youtube/views/components/custom_appbar.dart';
-import 'package:youtube/views/components/video_widget.dart';
+import 'package:mongo_dart/mongo_dart.dart';
+import 'package:youtube/ConnectMongo.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/logic/controllers/youtube/HomeController.dart';
+import 'package:youtube/views/components/CustomAppbar.dart';
+import 'package:youtube/views/components/VideoWidget.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -56,25 +58,34 @@ class Home extends StatelessWidget {
 
   // sve video to firebase
   void AddtoFireBase(String? videoId) async {
-    DocumentSnapshot userDoc = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(authController.displayUserEmail.value)
-        .get();
-    Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
-    DocumentReference doc = FirebaseFirestore.instance
-        .collection("users")
-        .doc(authController.displayUserEmail.value);
-        
+    // MongoDatabase db=MongoDatabase();
+
+    // DocumentSnapshot userDoc = await FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(authController.displayUserEmail.value)
+    //     .get();
+    var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
+    // Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
+    // print(user["history"]);
+    // print("helooooooooooooooooooooooooooo");
+    // DocumentReference doc = FirebaseFirestore.instance
+    //     .collection("users")
+    //     .doc(authController.displayUserEmail.value);
+    //
     // List<dynamic> x = docData["history"];
     try {
-      if (docData["history"].contains(videoId)) {
-        docData["history"].remove(videoId);
-        docData["history"].add(videoId);
-        doc.update({"history": docData["history"]});
+      if (user["history"].contains(videoId)) {
+        user["history"].remove(videoId);
+        user["history"].add(videoId);
+        MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
+
+        // doc.update({"history": user["history"]});
         return print('video already added to user history');
       } else {
-        docData["history"].add(videoId);
-        doc.update({"history": docData["history"]});
+        user["history"].add(videoId);
+        MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
+
+        // doc.update({"history": user["history"]});
       }
     } catch (e) {
       print(e);

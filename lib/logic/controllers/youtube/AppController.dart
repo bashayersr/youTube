@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:youtube/views/components/youtube_bottom_sheet.dart';
+import 'package:youtube/views/components/YoutubeBottomSheet.dart';
 
 
   //add 
-enum RouteName { Home, GetXVd, Add, DartVid, CleanCode }
+enum RouteName { Home, Explore, Add, Subscription, Library }
 
 class AppController extends GetxService {
 

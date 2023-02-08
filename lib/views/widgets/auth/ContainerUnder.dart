@@ -1,5 +1,5 @@
-import 'package:youtube/utils/text_utils.dart';
-import 'package:youtube/utils/theme.dart';
+import 'package:youtube/utils/TextUtils.dart';
+import 'package:youtube/utils/Theme.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

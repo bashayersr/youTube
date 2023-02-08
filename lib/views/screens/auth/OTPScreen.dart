@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/utils/text_utils.dart';
-import 'package:youtube/utils/theme.dart';
-import 'package:youtube/views/widgets/auth/auth_button.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/utils/TextUtils.dart';
+import 'package:youtube/utils/Theme.dart';
+import 'package:youtube/views/widgets/auth/AuthButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';

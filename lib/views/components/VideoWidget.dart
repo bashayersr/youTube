@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:youtube/logic/controllers/youtube/video_controller.dart';
-import 'package:youtube/model/video.dart';
+import 'package:youtube/logic/controllers/youtube/VideoController.dart';
+import 'package:youtube/model/Video.dart';
 
 class VideoWidget extends StatefulWidget {
   final Video video;

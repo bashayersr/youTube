@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:youtube/logic/repository/youtube_repository.dart';
-import 'package:youtube/model/statistics.dart';
-import 'package:youtube/model/video.dart';
-import 'package:youtube/model/youtuber.dart';
+import 'package:youtube/logic/repository/YoutubeRepository.dart';
+import 'package:youtube/model/Statistics.dart';
+import 'package:youtube/model/Video.dart';
+import 'package:youtube/model/Youtuber.dart';
 
 class VideoController extends GetxController {
   Video video;

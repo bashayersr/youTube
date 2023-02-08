@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/logic/controllers/auth/setting_controller.dart';
-import 'package:youtube/routes/routes.dart';
-import 'package:youtube/utils/text_utils.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/logic/controllers/auth/SettingController.dart';
+import 'package:youtube/routes/Routes.dart';
+import 'package:youtube/utils/TextUtils.dart';
 import 'package:youtube/views/widgets/settings/edit_profile.dart';
 import 'package:youtube/views/widgets/settings/settings.dart';
 import 'package:flutter/material.dart';

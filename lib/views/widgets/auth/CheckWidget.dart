@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../logic/controllers/auth/auth_controller.dart';
-import '../../../routes/routes.dart';
-import '../../../utils/text_utils.dart';
-import '../../../utils/theme.dart';
+import '../../../logic/controllers/auth/AuthController.dart';
+import '../../../routes/Routes.dart';
+import '../../../utils/TextUtils.dart';
+import '../../../utils/Theme.dart';
 
 class CheckWidget extends StatelessWidget {
   CheckWidget({super.key});

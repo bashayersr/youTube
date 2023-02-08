@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:youtube/logic/controllers/youtube/app_controller.dart';
-import 'package:youtube/views/screens/youtube/home.dart';
-import 'package:youtube/views/screens/youtube/library.dart';
-import 'package:youtube/views/screens/youtube/subsecribtion.dart';
+import 'package:youtube/logic/controllers/youtube/AppController.dart';
+import 'package:youtube/views/screens/youtube/Home.dart';
+import 'package:youtube/views/screens/youtube/Library.dart';
+import 'package:youtube/views/screens/youtube/Subscription.dart';
 import 'package:youtube/logic/controllers/youtube/HistoryController.dart';
 
 //this app dart contain the bootom navagation bar
@@ -20,14 +20,14 @@ class App extends GetView<AppController> {
           case RouteName.Home:
             return Home();
 
-          case RouteName.DartVid:
-            return Subsecribtion(); // rout to subsecribtion page
-          case RouteName.CleanCode:
+          case RouteName.Subscription:
+            return Subscription();
+          case RouteName.Library:
             Get.delete<HistoryController>();
             return  Library(); // rout to subsecribtion Library
           case RouteName.Add:
             break;
-          case RouteName.GetXVd:
+          case RouteName.Explore:
 
             break;
         }

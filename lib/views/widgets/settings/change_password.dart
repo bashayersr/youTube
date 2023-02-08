@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
-import 'package:youtube/logic/controllers/auth/auth_controller.dart';
-import 'package:youtube/views/screens/auth/forgot_password_screen.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
+import 'package:youtube/views/screens/auth/ForgotPasswordScreen.dart';
 
 
 

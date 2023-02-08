@@ -1,4 +1,4 @@
-import 'package:youtube/model/video.dart';
+import 'package:youtube/model/Video.dart';
 
 class YoutubeVideoResult {
   int? totalResults;
