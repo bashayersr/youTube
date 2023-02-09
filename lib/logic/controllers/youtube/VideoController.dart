@@ -15,7 +15,7 @@ class VideoController extends GetxController {
         await YoutubeRepository.to.getVideoInfoById(video.id!.videoId!);
     statistics(loadStatistics);
     Youtuber? loadYoutuber =
-        await YoutubeRepository.to.getYoutuberInfoById(video.snippet!.channelId!);
+        await YoutubeRepository.to.getYoutuberInfoById(video.snippet!.channelId!);  // to give id and give me youtuber
     youtuber(loadYoutuber);
     super.onInit();
   }

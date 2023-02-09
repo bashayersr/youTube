@@ -6,7 +6,7 @@ import 'package:youtube/model/YoutubeVideoResult.dart';
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
 
-  ScrollController scrollController = ScrollController();
+  ScrollController scrollController = ScrollController(); //to update data
 
   Rx<YoutubeVideoResult> youtubeResult = YoutubeVideoResult(items: []).obs;
 
@@ -35,7 +35,7 @@ class HomeController extends GetxController {
         youtubeVideoResult.items != null &&
         youtubeVideoResult.items!.length > 0) {
       youtubeResult.update((youtube) {
-        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;
+        youtube?.nextPagetoken = youtubeVideoResult.nextPagetoken;  //not rebeate videos
         youtube?.items!.addAll(youtubeVideoResult.items!);
       });
     }

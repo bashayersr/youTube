@@ -20,7 +20,7 @@ class YoutubeSearchController extends GetxController {
     super.onInit();
   }
 
-  void _event() {
+  void _event() {     // to update data after s
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
               scrollController.position.maxScrollExtent &&
@@ -39,14 +39,14 @@ class YoutubeSearchController extends GetxController {
 
   void _searchYoutube(String searchKey) async {
     YoutubeVideoResult? youtubeVideoResultFromServer = await YoutubeRepository.to
-        .search(searchKey, youtubeVideoResult.value.nextPagetoken ?? "");
+        .search(searchKey, youtubeVideoResult.value.nextPagetoken ?? "");   //repo
 
     if (youtubeVideoResultFromServer != null &&
         youtubeVideoResultFromServer.items != null &&
         youtubeVideoResultFromServer.items!.length > 0) {
       youtubeVideoResult.update((youtube) {
         youtube?.nextPagetoken = youtubeVideoResultFromServer.nextPagetoken;
-        youtube?.items!.addAll(youtubeVideoResultFromServer.items!);
+        youtube?.items!.addAll(youtubeVideoResultFromServer.items!);  // after 10 will stop
       });
     }
   }

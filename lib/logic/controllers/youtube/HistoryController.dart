@@ -19,16 +19,14 @@ class HistoryController extends GetxController {
   }
 
 
-
-
   void _history() async {
     var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
-
+    // to get user from collection  and his email
     List<dynamic> historyList = [];
     historyList.clear();
     historyList = user["history"];
     for(final e in historyList){
-      Video? youtubeVideoResult = await YoutubeRepository.to.getVideoByID(e["id"]);
+      Video? youtubeVideoResult = await YoutubeRepository.to.getVideoByID(e["id"]); // id from repo
       youtubeVideoResult != null? {
         youtubeResult.update(
               (youtube) {

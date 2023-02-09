@@ -74,16 +74,29 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
               var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
               print(user["history"]);
               List< dynamic>  historyList=user["history"].toList();
+
+              List<dynamic> data=  historyList.where((history) => (history["id"].contains(controller.video.value.id?.videoId))).toList();
+              print(data.length);
+              data.length >=1? {
+                historyList.remove(data[0]),
               if(iconPath=="like" )
-                historyList[0]["like"]=1;
-                else if(iconPath=="dislike")
-                historyList[0]["dislike"]=1;
-                else if (iconPath=="share") {
-                await Clipboard.setData(ClipboardData(text: controller.video.value.id?.videoId));
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("URL Has Copied")));
-              }
+              data[0]["like"]=1
+              else if(iconPath=="dislike")
+              data[0]["dislike"]=1
+              else if (iconPath=="share") {
+              await Clipboard.setData(ClipboardData(text: controller.video.value.id?.videoId)),
+              ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text("URL Has Copied")))
+              },
+
+                historyList.add(data[0])
+              }:
+              print(historyList);
               MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",historyList));
+
+
+
+              // MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",historyList));
 
             },
             icon: SvgPicture.asset("assets/svg/icons/$iconPath.svg")

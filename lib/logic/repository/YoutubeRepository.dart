@@ -74,7 +74,7 @@ class YoutubeRepository extends GetConnect {
 
   Future<Video?> getVideoByID(String videoID) async {
     String url =
-        "/youtube/v3/videos?part=snippet&key=AIzaSyDugHgpoBVUEWgLOBNx9GU5Tv19Mgue9ts&id=$videoID";
+        "/youtube/v3/videos?part=snippet&key=AIzaSyDugHgpoBVUEWgLOBNx9GU5Tv19Mgue9ts&id=$videoID";  // new
     final response = await get(url);
     if (response.status.hasError) {
       return Future.error(Exception(response.statusText));
@@ -84,7 +84,7 @@ class YoutubeRepository extends GetConnect {
           "kind": "youtube#video",
           "videoId": response.body["items"][0]["id"]
         };
-        return Video.fromJson(response.body["items"][0]);
+        return Video.fromJson(response.body["items"][0]); // to convert
       }
     }
     return null;
