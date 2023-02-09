@@ -95,8 +95,13 @@ class _VideoWidgetState extends State<VideoWidget> {
                         color: Colors.black.withOpacity(0.6),
                       ),
                     ),
+
                   ],
-                )
+                ),
+                Text(" · "),
+                Text(
+                    widget.video.history!=null?widget.video.history.toString().substring(0,16): ""
+                ),
               ],
             ),
           )

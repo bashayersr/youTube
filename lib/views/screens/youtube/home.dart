@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                 (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      AddtoFireBase(controller
+                      AddtoMongoDB(controller
                           .youtubeResult.value.items![index].id?.videoId);
 
                       //page route
@@ -57,38 +57,44 @@ class Home extends StatelessWidget {
   }
 
   // sve video to firebase
-  void AddtoFireBase(String? videoId) async {
-    // MongoDatabase db=MongoDatabase();
-
-    // DocumentSnapshot userDoc = await FirebaseFirestore.instance
-    //     .collection('users')
-    //     .doc(authController.displayUserEmail.value)
-    //     .get();
+  void AddtoMongoDB(String? videoId) async {
     var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
-    // Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
-    // print(user["history"]);
-    // print("helooooooooooooooooooooooooooo");
-    // DocumentReference doc = FirebaseFirestore.instance
-    //     .collection("users")
-    //     .doc(authController.displayUserEmail.value);
-    //
-    // List<dynamic> x = docData["history"];
-    try {
-      if (user["history"].contains(videoId)) {
-        user["history"].remove(videoId);
-        user["history"].add(videoId);
-        MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
+    print(user["history"]);
+    List< dynamic>  historyList=user["history"].toList();
+    // var data2 = historyList.firstWhere((history) => history["id"].contains(videoId), orElse:  null);
+      List<dynamic> data=  historyList.where((history) => (history["id"].contains(videoId))).toList();
+      print(data.length);
+      data.length >=1? {
+        historyList.remove(data[0]),
+        historyList.add({
+          "id":videoId,
+          "date":DateTime.now()
+        })
+      }:
+    historyList.add({
+    "id":videoId,
+    "date":DateTime.now()
+    });
+      print(historyList);
+    MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",historyList));
+      //
+      // for(var history in historyList){
+      //   history["id"]
+      // }
+      // if (user["history"].contains(videoId)) {
+      //   user["history"].remove(videoId);
+      //   user["history"].add(videoId);
+      //   MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
+      //
+      //   return print('video already added to user history');
+      // } else {
+      //   user["history"].add({
+      //     "id":videoId,
+      //     "date":DateTime.now()
+      //   });
+      //   MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
 
-        // doc.update({"history": user["history"]});
-        return print('video already added to user history');
-      } else {
-        user["history"].add(videoId);
-        MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",user["history"]));
+      // }
 
-        // doc.update({"history": user["history"]});
-      }
-    } catch (e) {
-      print(e);
-    }
   }
 }

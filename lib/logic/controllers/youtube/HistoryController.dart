@@ -24,21 +24,16 @@ class HistoryController extends GetxController {
   void _history() async {
     var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
 
-    //
-    // DocumentSnapshot userDoc = await FirebaseFirestore.instance
-    //     .collection('users')
-    //     .doc(authController.displayUserEmail.value)
-    //     .get();
-    // Map<String, dynamic> docData = userDoc.data() as Map<String, dynamic>;
     List<dynamic> historyList = [];
     historyList.clear();
     historyList = user["history"];
     for(final e in historyList){
-      Video? youtubeVideoResult = await YoutubeRepository.to.getVideoByID(e);
+      Video? youtubeVideoResult = await YoutubeRepository.to.getVideoByID(e["id"]);
       youtubeVideoResult != null? {
         youtubeResult.update(
               (youtube) {
             youtube?.items!.insert(0,youtubeVideoResult);
+            youtube?.items![0].history=e["date"];
           },
         )
       }:print("");

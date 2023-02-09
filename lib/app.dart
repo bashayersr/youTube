@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:youtube/logic/controllers/youtube/AppController.dart';
+import 'package:youtube/views/screens/youtube/Explore.dart';
 import 'package:youtube/views/screens/youtube/Home.dart';
 import 'package:youtube/views/screens/youtube/Library.dart';
 import 'package:youtube/views/screens/youtube/Subscription.dart';
@@ -28,7 +29,7 @@ class App extends GetView<AppController> {
           case RouteName.Add:
             break;
           case RouteName.Explore:
-
+          return Explore();
             break;
         }
         return Container();
@@ -70,7 +71,7 @@ class App extends GetView<AppController> {
             BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/svg/icons/subs_off.svg"),
               activeIcon: SvgPicture.asset("assets/svg/icons/subs_on.svg"),
-              label: "subsecriabtion",
+              label: "subscription",
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset("assets/svg/icons/library_off.svg"),

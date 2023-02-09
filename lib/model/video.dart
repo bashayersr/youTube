@@ -1,4 +1,3 @@
-
 class Video {
   Video({
     this.kind,
@@ -11,6 +10,7 @@ class Video {
   String? etag;
   Id? id;
   Snippet? snippet;
+  DateTime? history;
 
   factory Video.fromJson(Map<String, dynamic> json) => Video(
         kind: json["kind"],

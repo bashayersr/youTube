@@ -80,14 +80,10 @@ class YoutubeRepository extends GetConnect {
       return Future.error(Exception(response.statusText));
     } else {
       if (response.body["items"] != null && response.body["items"].length > 0) {
-        print(response.body["items"]);
         response.body["items"][0]["id"] = {
           "kind": "youtube#video",
           "videoId": response.body["items"][0]["id"]
         };
-        print(response.body["items"]);
-
-        print(response.body["items"][0]["id"]["videoId"]);
         return Video.fromJson(response.body["items"][0]);
       }
     }

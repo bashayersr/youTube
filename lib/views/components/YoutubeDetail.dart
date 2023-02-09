@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:mongo_dart/mongo_dart.dart';
+import 'package:youtube/ConnectMongo.dart';
+import 'package:youtube/logic/controllers/auth/AuthController.dart';
 import 'package:youtube/logic/controllers/youtube/YoutubeDetailController.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeDetail extends GetView<YoutubeDetailController> {
-  const YoutubeDetail({super.key});
+  final authController = Get.find<AuthController>();
+
+   YoutubeDetail({super.key});
 
   Widget _titleZone() {
     return Container(
@@ -59,25 +64,43 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
     );
   }
 
-  Widget _buttonOne(String iconPath, String text) {
+  Widget _buttonOne(String iconPath, String text,BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset("assets/svg/icons/$iconPath.svg"),
-        Text(text)
+        // SvgPicture.asset("assets/svg/icons/$iconPath.svg"),
+        IconButton(
+            onPressed: () async {
+              var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
+              print(user["history"]);
+              List< dynamic>  historyList=user["history"].toList();
+              if(iconPath=="like" )
+                historyList[0]["like"]=1;
+                else if(iconPath=="dislike")
+                historyList[0]["dislike"]=1;
+                else if (iconPath=="share")
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("URL Has Copied")));
+
+              MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",historyList));
+
+            },
+            icon: SvgPicture.asset("assets/svg/icons/$iconPath.svg")
+           ),
+        Text(text),
+
       ],
     );
   }
 
-  Widget _buttonZone() {
+  Widget _buttonZone(BuildContext context) {
     return Obx(
       () => Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buttonOne("like", controller.statistics.value.likeCount.toString()),
+          _buttonOne("like", controller.statistics.value.likeCount.toString(),context),
           _buttonOne(
-              "dislike", controller.statistics.value.dislikeCount.toString()),
-          _buttonOne("share", "share"),
-          _buttonOne("save", "save"),
+              "dislike", controller.statistics.value.dislikeCount.toString(),context),
+          _buttonOne("share", "share",context),
+          _buttonOne("save", "save",context),
         ],
       ),
     );
@@ -132,7 +155,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
     );
   }
 
-  Widget _description() {
+  Widget _description(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -140,7 +163,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
           _titleZone(),
           line,
           _descriptionZone(),
-          _buttonZone(),
+          _buttonZone(context),
           SizedBox(height: 20),
           line,
           _ownerZone()
@@ -187,7 +210,7 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
             onEnded: (data) {},
           ),
           Expanded(
-            child: _description(),
+            child: _description(context),
           )
         ],
       ),
