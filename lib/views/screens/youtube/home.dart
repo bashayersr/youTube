@@ -59,7 +59,6 @@ class Home extends StatelessWidget {
   // sve video to firebase
   void AddtoMongoDB(String? videoId) async {
     var user = await MongoDatabase.userCollection.findOne({"email":authController.displayUserEmail.value});
-    print(user["history"]);
     List< dynamic>  historyList=user["history"].toList();
     // var data2 = historyList.firstWhere((history) => history["id"].contains(videoId), orElse:  null);
       List<dynamic> data=  historyList.where((history) => (history["id"].contains(videoId))).toList();

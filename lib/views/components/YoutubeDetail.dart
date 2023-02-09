@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -77,9 +78,11 @@ class YoutubeDetail extends GetView<YoutubeDetailController> {
                 historyList[0]["like"]=1;
                 else if(iconPath=="dislike")
                 historyList[0]["dislike"]=1;
-                else if (iconPath=="share")
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("URL Has Copied")));
-
+                else if (iconPath=="share") {
+                await Clipboard.setData(ClipboardData(text: controller.video.value.id?.videoId));
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("URL Has Copied")));
+              }
               MongoDatabase.userCollection.update(where.eq("email",authController.displayUserEmail.value),modify.set("history",historyList));
 
             },
